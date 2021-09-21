@@ -30,6 +30,7 @@ export const Image = styled.img`
 
 export const Name = styled.p`
 	color: ${({ isActive }) => (isActive ? colors.primary : colors.secondary)};
+	font-family: Inter;
 	font-size: 1.4rem;
 	font-weight: 500;
 	line-height: 1.7rem;

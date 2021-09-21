@@ -1,19 +1,8 @@
 import styled from 'styled-components'
 import colors from '../../theme/colors'
 
-export const ChannelsCount = styled.p`
+export const ChannelsCount = styled.span`
 	color: ${colors.primary};
-`
-
-export const FlaggedCount = styled.h1`
-	background-color: ${colors.gray400};
-	display: inline-block;
-	padding: 6px 15px;
-	font-size: 1.4rem;
-	font-weight: 600;
-	line-height: 1.7rem;
-	border-radius: 1.6rem;
-	margin: 0;
 `
 
 export const Navigation = styled.nav`
@@ -27,16 +16,21 @@ export const Navigation = styled.nav`
 	}
 `
 
-export const MainPanel = styled.section`
+export const FlaggedChannels = styled.section`
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	margin-left: 30rem;
 `
 
-// export const MainPanel = styled.section`
-// 	position: absolute;
-// 	top: 4.2rem;
-// 	width: 100%;
-// 	margin-left: 30rem;
-// `
+export const FlaggedCount = styled.h1`
+	background-color: ${colors.gray400};
+	display: inline-block;
+	padding: 6px 15px;
+	font-size: 1.4rem;
+	font-weight: 600;
+	line-height: 1.7rem;
+	border-radius: 1.6rem;
+	margin: 0;
+`

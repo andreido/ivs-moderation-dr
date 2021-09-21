@@ -12,11 +12,12 @@ export const Container = styled.aside`
 `
 
 export const Heading = styled.header`
-	font-size: 14px;
+	font-size: 1.4rem;
 	font-weight: bold;
-	line-height: 17px;
+	line-height: 1.7rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	padding: 1.2rem 0 1.6rem 0;
 `

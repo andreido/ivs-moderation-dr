@@ -3,24 +3,29 @@ import {
 	ChannelsCount,
 	Navigation,
 	FlaggedCount,
-	MainPanel
+	FlaggedChannels
 } from './Homepage.styles'
 
 import Sidebar from '../../components/Sidebar'
 import Button from '../../components/Button'
+import ImageGrid from '../../components/ImageGrid'
+import FloatingActionMenu from '../../components/FloatingActionMenu'
 
 import { ReactComponent as SettingsIcon } from '../../assets/settings.svg'
+import { ReactComponent as ThumbsUpIcon } from '../../assets/thumbsUp.svg'
+import { ReactComponent as ThumbsDownIcon } from '../../assets/thumbsDown.svg'
 import { multiChannel as channelsData } from '../../dummyChannelsData'
 
 import useChannels from '../../contexts/channels/useChannels'
 import { getSidebarChannels, getChannel } from './utils'
+import colors from '../../theme/colors'
 
 const Homepage = () => {
 	const { channels, selectedChannelId, setChannels, setSelectedChannelId } =
 		useChannels()
 
-	const flaggedCount = useMemo(
-		() => getChannel(channels, selectedChannelId)?.flagged_images.length,
+	const selectedChannel = useMemo(
+		() => getChannel(channels, selectedChannelId),
 		[channels, selectedChannelId]
 	)
 
@@ -40,9 +45,15 @@ const Homepage = () => {
 				items={getSidebarChannels(channels, selectedChannelId)}
 				setSelectedItem={setSelectedChannelId}
 			>
-				<ChannelsCount>{channels.length}</ChannelsCount>
-				&nbsp;
-				{`Stream${channels.length === 1 ? '' : 's'} to review`}
+				{channels.length ? (
+					<>
+						<ChannelsCount>{channels.length}</ChannelsCount>
+						&nbsp;
+						{`Stream${channels.length === 1 ? '' : 's'} to review`}
+					</>
+				) : (
+					<>No streams to review</>
+				)}
 			</Sidebar>
 			<Navigation>
 				<Button>
@@ -50,10 +61,22 @@ const Homepage = () => {
 				</Button>
 				<Button>Log out</Button>
 			</Navigation>
-			<MainPanel>
-				<FlaggedCount>{`${flaggedCount} flagged thumbnails`}</FlaggedCount>
-				
-			</MainPanel>
+			{selectedChannel && (
+				<FlaggedChannels>
+					<FlaggedCount>{`${selectedChannel.flagged_images.length} flagged thumbnails`}</FlaggedCount>
+					<ImageGrid imgSources={selectedChannel.flagged_images} />
+					<FloatingActionMenu>
+						<Button variant="action" hoverColor={colors.lightGreen}>
+							<ThumbsUpIcon />
+							Ignore
+						</Button>
+						<Button variant="action" hoverColor={colors.lightRed}>
+							<ThumbsDownIcon />
+							Terminate
+						</Button>
+					</FloatingActionMenu>
+				</FlaggedChannels>
+			)}
 		</>
 	)
 }
