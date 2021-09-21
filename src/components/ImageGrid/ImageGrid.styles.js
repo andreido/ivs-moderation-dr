@@ -3,7 +3,8 @@ import styled from 'styled-components'
 export const Grid = styled.div`
 	display: grid;
 	grid-gap: 2.5rem;
-	padding: 2.5rem 8.6rem;
+	padding: 2.9rem 8.6rem;
+	overflow-y: scroll;
 
 	@media (min-width: 700px) {
 		grid-template-columns: repeat(1, 1fr);

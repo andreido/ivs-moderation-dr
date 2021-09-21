@@ -6,10 +6,16 @@ export const ChannelsCount = styled.span`
 `
 
 export const Navigation = styled.nav`
+	position: fixed;
+	top: 0;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	margin: 0.6rem 0 0 30rem;
+	padding: 0.6rem 0;
+	background-color: #1b2733;
+	z-index: 100;
+	width: 100%;
+	height: 5rem;
 
 	button + button {
 		margin: 0 1.5rem;
@@ -17,6 +23,8 @@ export const Navigation = styled.nav`
 `
 
 export const FlaggedChannels = styled.section`
+	position: absolute;
+	top: 5rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

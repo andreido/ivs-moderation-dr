@@ -9,6 +9,7 @@ export const Container = styled.aside`
 	width: 30rem;
 	height: 100%;
 	padding: 0.5rem;
+	z-index: 1000;
 `
 
 export const Heading = styled.header`
