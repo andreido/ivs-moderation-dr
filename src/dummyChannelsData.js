@@ -45,7 +45,7 @@ export const multiChannel = {
 						'https://d372avd287zhsq.cloudfront.net/ivs/v1/150635757663/pnOBmgfqbdOT/2021/6/18/23/20/EK2r858C0mmE/media/thumbnails/thumb19.jpg',
 						'https://d372avd287zhsq.cloudfront.net/ivs/v1/150635757663/pnOBmgfqbdOT/2021/6/18/23/20/EK2r858C0mmE/media/thumbnails/thumb10.jpg',
 						'https://d372avd287zhsq.cloudfront.net/ivs/v1/150635757663/pnOBmgfqbdOT/2021/6/18/23/20/EK2r858C0mmE/media/thumbnails/thumb4.jpg',
-						'https://d372avd287zhsq.cloudfront.net/ivs/v1/150635757663/pnOBmgfqbdOT/2021/6/18/23/20/EK2r858C0mmE/media/thumbnails/thumb15.jpg',
+						'https://d372avd287zhsq.cloudfront.net/ivs/v1/150635757663/pnOBmgfqbdOT/2021/6/18/23/20/EK2r858C0mmE/media/thumbnails/thumb15.jpg'
 						// 'https://d372avd287zhsq.cloudfront.net/ivs/v1/150635757663/pnOBmgfqbdOT/2021/6/18/23/20/EK2r858C0mmE/media/thumbnails/thumb50.jpg',
 						// 'https://d372avd287zhsq.cloudfront.net/ivs/v1/150635757663/pnOBmgfqbdOT/2021/6/18/23/20/EK2r858C0mmE/media/thumbnails/thumb12.jpg',
 						// 'https://d372avd287zhsq.cloudfront.net/ivs/v1/150635757663/pnOBmgfqbdOT/2021/6/18/23/20/EK2r858C0mmE/media/thumbnails/thumb1.jpg',

@@ -5,6 +5,12 @@ export const ChannelsCount = styled.span`
 	color: ${colors.primary};
 `
 
+export const MainPanel = styled.div`
+	margin-top: 5rem;
+	height: calc(100vh - 5rem);
+	overflow-y: overlay;
+`
+
 export const Navigation = styled.nav`
 	position: fixed;
 	top: 0;
@@ -23,17 +29,8 @@ export const Navigation = styled.nav`
 	}
 `
 
-export const FlaggedChannels = styled.section`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin-left: 30rem;
-`
-
 export const FlaggedCount = styled.h1`
 	background-color: ${colors.gray400};
-	display: inline-block;
 	padding: 6px 15px;
 	font-size: 1.4rem;
 	font-weight: 600;
@@ -42,9 +39,10 @@ export const FlaggedCount = styled.h1`
 	margin: 0;
 `
 
-export const MainPanel = styled.div`
-	height: calc(100vh - 5rem);
-	position: relative;
-	margin-top: 5rem;
-	overflow-y: overlay;
+export const FlaggedChannels = styled.section`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-left: 30rem;
 `
