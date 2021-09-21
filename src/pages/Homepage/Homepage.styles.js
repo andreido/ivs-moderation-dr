@@ -9,24 +9,16 @@ export const MainPanel = styled.div`
 	margin-top: 5rem;
 	height: calc(100vh - 5rem);
 	overflow-y: overlay;
-`
+	margin-left: ${({ isMobile }) => (isMobile ? 0 : '30rem')};
 
-export const Navigation = styled.nav`
-	position: fixed;
-	top: 0;
-	right: 0;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	padding: 0.6rem 0;
-	background-color: #1b2733;
-	z-index: 10;
-	width: 100%;
-	height: 5rem;
-
-	button + button {
-		margin: 0 1.5rem;
-	}
+	${({ isMobile }) => {
+		if (isMobile) {
+			return `&::-webkit-scrollbar {
+				background: transparent; /* Chrome/Safari/Webkit */
+				width: 0px;
+			}`
+		}
+	}}
 `
 
 export const FlaggedCount = styled.h1`
@@ -44,5 +36,4 @@ export const FlaggedChannels = styled.section`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin-left: 30rem;
 `

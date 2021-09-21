@@ -1,27 +1,24 @@
 import React, { useEffect, useMemo } from 'react'
 import {
 	ChannelsCount,
-	Navigation,
 	FlaggedCount,
 	FlaggedChannels,
 	MainPanel
 } from './Homepage.styles'
 
 import Sidebar from '../../components/Sidebar'
-import Button from '../../components/Button'
 import ImageGrid from '../../components/ImageGrid'
 import FloatingActionMenu from './components/FloatingActionMenu'
+import Navigation from './components/Navigation'
 
-import { ReactComponent as SettingsIcon } from '../../assets/settings.svg'
-import { ReactComponent as ThumbsUpIcon } from '../../assets/thumbsUp.svg'
-import { ReactComponent as ThumbsDownIcon } from '../../assets/thumbsDown.svg'
 import { multiChannel as channelsData } from '../../dummyChannelsData'
 
 import useChannels from '../../contexts/channels/useChannels'
+import useBreakpoints from '../../contexts/breakpoints/useBreakpoints'
 import { getSidebarChannels, getChannel } from './utils'
-import colors from '../../theme/colors'
 
 const Homepage = () => {
+	const { isMobile } = useBreakpoints()
 	const { channels, selectedChannelId, setChannels, setSelectedChannelId } =
 		useChannels()
 
@@ -42,41 +39,29 @@ const Homepage = () => {
 
 	return (
 		<>
-			<Sidebar
-				items={getSidebarChannels(channels, selectedChannelId)}
-				setSelectedItem={setSelectedChannelId}
-			>
-				{channels.length ? (
-					<>
-						<ChannelsCount>{channels.length}</ChannelsCount>
-						&nbsp;
-						{`Stream${channels.length === 1 ? '' : 's'} to review`}
-					</>
-				) : (
-					<>No streams to review</>
-				)}
-			</Sidebar>
-			<MainPanel>
-				<Navigation>
-					<Button>
-						<SettingsIcon />
-					</Button>
-					<Button>Log out</Button>
-				</Navigation>
+			{!isMobile && (
+				<Sidebar
+					items={getSidebarChannels(channels, selectedChannelId)}
+					setSelectedItem={setSelectedChannelId}
+				>
+					{channels.length ? (
+						<>
+							<ChannelsCount>{channels.length}</ChannelsCount>
+							&nbsp;
+							{`Stream${channels.length === 1 ? '' : 's'} to review`}
+						</>
+					) : (
+						<>No streams to review</>
+					)}
+				</Sidebar>
+			)}
+			<MainPanel isMobile={isMobile}>
+				<Navigation />
 				{selectedChannel && (
 					<FlaggedChannels>
 						<FlaggedCount>{`${selectedChannel.flagged_images.length} flagged thumbnails`}</FlaggedCount>
 						<ImageGrid imgSources={selectedChannel.flagged_images} />
-						<FloatingActionMenu>
-							<Button variant="action" hoverColor={colors.lightGreen}>
-								<ThumbsUpIcon />
-								Ignore
-							</Button>
-							<Button variant="action" hoverColor={colors.lightRed}>
-								<ThumbsDownIcon />
-								Terminate
-							</Button>
-						</FloatingActionMenu>
+						<FloatingActionMenu />
 					</FlaggedChannels>
 				)}
 			</MainPanel>
