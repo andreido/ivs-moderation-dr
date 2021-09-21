@@ -8,12 +8,13 @@ export const ChannelsCount = styled.span`
 export const Navigation = styled.nav`
 	position: fixed;
 	top: 0;
+	right: 0;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	padding: 0.6rem 0;
 	background-color: #1b2733;
-	z-index: 100;
+	z-index: 10;
 	width: 100%;
 	height: 5rem;
 
@@ -23,8 +24,6 @@ export const Navigation = styled.nav`
 `
 
 export const FlaggedChannels = styled.section`
-	position: absolute;
-	top: 5rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -41,4 +40,11 @@ export const FlaggedCount = styled.h1`
 	line-height: 1.7rem;
 	border-radius: 1.6rem;
 	margin: 0;
+`
+
+export const MainPanel = styled.div`
+	height: calc(100vh - 5rem);
+	position: relative;
+	margin-top: 5rem;
+	overflow-y: overlay;
 `

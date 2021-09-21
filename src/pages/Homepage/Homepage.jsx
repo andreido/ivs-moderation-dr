@@ -3,7 +3,8 @@ import {
 	ChannelsCount,
 	Navigation,
 	FlaggedCount,
-	FlaggedChannels
+	FlaggedChannels,
+	MainPanel
 } from './Homepage.styles'
 
 import Sidebar from '../../components/Sidebar'
@@ -55,28 +56,30 @@ const Homepage = () => {
 					<>No streams to review</>
 				)}
 			</Sidebar>
-			<Navigation>
-				<Button>
-					<SettingsIcon />
-				</Button>
-				<Button>Log out</Button>
-			</Navigation>
-			{selectedChannel && (
-				<FlaggedChannels>
-					<FlaggedCount>{`${selectedChannel.flagged_images.length} flagged thumbnails`}</FlaggedCount>
-					<ImageGrid imgSources={selectedChannel.flagged_images} />
-					<FloatingActionMenu>
-						<Button variant="action" hoverColor={colors.lightGreen}>
-							<ThumbsUpIcon />
-							Ignore
-						</Button>
-						<Button variant="action" hoverColor={colors.lightRed}>
-							<ThumbsDownIcon />
-							Terminate
-						</Button>
-					</FloatingActionMenu>
-				</FlaggedChannels>
-			)}
+			<MainPanel>
+				<Navigation>
+					<Button>
+						<SettingsIcon />
+					</Button>
+					<Button>Log out</Button>
+				</Navigation>
+				{selectedChannel && (
+					<FlaggedChannels>
+						<FlaggedCount>{`${selectedChannel.flagged_images.length} flagged thumbnails`}</FlaggedCount>
+						<ImageGrid imgSources={selectedChannel.flagged_images} />
+						<FloatingActionMenu>
+							<Button variant="action" hoverColor={colors.lightGreen}>
+								<ThumbsUpIcon />
+								Ignore
+							</Button>
+							<Button variant="action" hoverColor={colors.lightRed}>
+								<ThumbsDownIcon />
+								Terminate
+							</Button>
+						</FloatingActionMenu>
+					</FlaggedChannels>
+				)}
+			</MainPanel>
 		</>
 	)
 }
