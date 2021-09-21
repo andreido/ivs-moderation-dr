@@ -9,7 +9,7 @@ import {
 import Sidebar from '../../components/Sidebar'
 import Button from '../../components/Button'
 import ImageGrid from '../../components/ImageGrid'
-import FloatingActionMenu from '../../components/FloatingActionMenu'
+import FloatingActionMenu from './components/FloatingActionMenu'
 
 import { ReactComponent as SettingsIcon } from '../../assets/settings.svg'
 import { ReactComponent as ThumbsUpIcon } from '../../assets/thumbsUp.svg'
