@@ -6,10 +6,27 @@ export const Container = styled.aside`
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 30rem;
 	height: 100%;
 	padding: 0.5rem;
 	z-index: 1000;
+
+	${({ isMobile, isMenuOpen }) => {
+		if (isMobile) {
+			if (isMenuOpen) {
+				return `
+					width: 100%;
+					top: 5rem;
+				`
+			} else {
+				return `
+					visibility: hidden;
+					top: 5rem;
+				`
+			}
+		} else {
+			return `width: 30rem;`
+		}
+	}}
 `
 
 export const Heading = styled.header`

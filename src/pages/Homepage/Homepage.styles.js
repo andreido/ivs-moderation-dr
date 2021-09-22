@@ -23,7 +23,7 @@ export const MainPanel = styled.div`
 
 export const FlaggedCount = styled.h1`
 	background-color: ${colors.gray400};
-	padding: 6px 15px;
+	padding: 0.6rem 1.5rem;
 	font-size: 1.4rem;
 	font-weight: 600;
 	line-height: 1.7rem;
@@ -36,4 +36,5 @@ export const FlaggedChannels = styled.section`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	margin-top: ${({ isMobile }) => (isMobile ? '3.5rem' : '0')};
 `

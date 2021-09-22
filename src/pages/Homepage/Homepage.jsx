@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import {
 	ChannelsCount,
 	FlaggedCount,
@@ -18,6 +18,7 @@ import useBreakpoints from '../../contexts/breakpoints/useBreakpoints'
 import { getSidebarChannels, getChannel } from './utils'
 
 const Homepage = () => {
+	const [isMenuOpen, setMenuOpen] = useState(false)
 	const { isMobile } = useBreakpoints()
 	const { channels, selectedChannelId, setChannels, setSelectedChannelId } =
 		useChannels()
@@ -39,27 +40,34 @@ const Homepage = () => {
 
 	return (
 		<>
-			{!isMobile && (
-				<Sidebar
-					items={getSidebarChannels(channels, selectedChannelId)}
-					setSelectedItem={setSelectedChannelId}
-				>
-					{channels.length ? (
-						<>
-							<ChannelsCount>{channels.length}</ChannelsCount>
-							&nbsp;
-							{`Stream${channels.length === 1 ? '' : 's'} to review`}
-						</>
-					) : (
-						<>No streams to review</>
-					)}
-				</Sidebar>
-			)}
+			<Sidebar
+				items={getSidebarChannels(channels, selectedChannelId)}
+				setSelectedChannelId={setSelectedChannelId}
+				isMobile={isMobile}
+				isMenuOpen={isMenuOpen}
+				setMenuOpen={setMenuOpen}
+			>
+				{channels.length ? (
+					<>
+						<ChannelsCount>{channels.length}</ChannelsCount>
+						&nbsp;
+						{`Stream${channels.length === 1 ? '' : 's'} to review`}
+					</>
+				) : (
+					<>No streams to review</>
+				)}
+			</Sidebar>
 			<MainPanel isMobile={isMobile}>
-				<Navigation />
+				<Navigation
+					isMenuOpen={isMenuOpen}
+					setMenuOpen={setMenuOpen}
+					hasChannels={!!channels.length}
+				/>
 				{selectedChannel && (
-					<FlaggedChannels>
-						<FlaggedCount>{`${selectedChannel.flagged_images.length} flagged thumbnails`}</FlaggedCount>
+					<FlaggedChannels isMobile={isMobile}>
+						<FlaggedCount>
+							{`${selectedChannel.flagged_images.length} flagged thumbnails`}
+						</FlaggedCount>
 						<ImageGrid imgSources={selectedChannel.flagged_images} />
 						<FloatingActionMenu />
 					</FlaggedChannels>

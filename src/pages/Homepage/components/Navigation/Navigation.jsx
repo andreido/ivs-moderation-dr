@@ -5,15 +5,18 @@ import MenuIcon from '../../../../assets/MenuIcon'
 import { Container, LeftNav, RightNav } from './Navigation.styles'
 import useBreakpoints from '../../../../contexts/breakpoints/useBreakpoints'
 
-const Navigation = () => {
+const Navigation = ({ isMenuOpen, setMenuOpen, hasChannels }) => {
 	const { isMobile } = useBreakpoints()
 
 	return (
 		<Container>
 			<LeftNav>
 				{isMobile && (
-					<Button onClick={() => console.log('Menu Toggled')}>
-						<MenuIcon notif />
+					<Button
+						disableHover={isMenuOpen}
+						onClick={() => setMenuOpen((prev) => !prev)}
+					>
+						<MenuIcon active={isMenuOpen} notif={hasChannels} />
 					</Button>
 				)}
 			</LeftNav>

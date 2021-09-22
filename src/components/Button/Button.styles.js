@@ -21,9 +21,13 @@ export const DefaultButton = styled.button`
 		box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
 		border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
-	&:hover {
-		background-color: ${colors.primary};
-	}
+	${({ disableHover }) => {
+		if (!disableHover) {
+			return `&:hover {
+				background-color: ${colors.primary};
+			}`
+		}
+	}}
 `
 
 export const ActionButton = styled.button`
