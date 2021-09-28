@@ -2,15 +2,23 @@ import React from 'react'
 import SidebarItem from '../SidebarItem'
 import { Container, Heading } from './Sidebar.styles'
 
-const Sidebar = ({
+interface Props<I> {
+	items: I[]
+	setSelectedChannelId: (selectedChannelId: string) => void
+	isMobile: boolean
+	isMenuOpen: boolean
+	setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Sidebar = <I extends { id: string }>({
 	children,
 	items,
 	setSelectedChannelId,
 	isMobile,
 	isMenuOpen,
 	setMenuOpen
-}) => {
-	const setSelectedItem = (id) => {
+}: React.PropsWithChildren<Props<I>>) => {
+	const setSelectedItem = (id: string) => {
 		setSelectedChannelId(id)
 		if (isMenuOpen) {
 			setMenuOpen(false)

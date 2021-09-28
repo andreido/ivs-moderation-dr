@@ -1,11 +1,10 @@
-import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Homepage from './pages/Homepage'
-import routes from './constants/routes'
+import RoutePath from './constants/routes'
 
 const App = () => (
 	<Switch>
-		<Route exact path={routes.HOME} component={Homepage} />
+		<Route exact path={RoutePath.HOME} component={Homepage} />
 	</Switch>
 )
 

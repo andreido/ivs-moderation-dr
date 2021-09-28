@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import colors from '../../../../theme/colors'
+import Color from '../../../../theme/colors'
 
 export const Container = styled.div`
 	position: fixed;
@@ -9,7 +9,7 @@ export const Container = styled.div`
 			rgba(101, 8, 145, 0.3) -1.61%,
 			rgba(19, 56, 151, 0) 73.97%
 		),
-		${colors.primary};
+		${Color.PRIMARY};
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
 	border-radius: 16px;
 	z-index: 100;

@@ -1,8 +1,13 @@
 import styled from 'styled-components'
-import colors from '../../theme/colors'
+import Color from '../../theme/colors'
 
-export const Container = styled.aside`
-	background-color: ${colors.gray900};
+interface ContainerProps {
+	isMobile: boolean
+	isMenuOpen: boolean
+}
+
+export const Container = styled.aside<ContainerProps>`
+	background-color: ${Color.GRAY_900};
 	position: fixed;
 	top: 0;
 	left: 0;

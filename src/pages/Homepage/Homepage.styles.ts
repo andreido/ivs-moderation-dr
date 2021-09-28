@@ -1,17 +1,21 @@
 import styled from 'styled-components'
-import colors from '../../theme/colors'
+import Color from '../../theme/colors'
+
+interface Props {
+	isMobile: boolean
+}
 
 export const ChannelsCount = styled.span`
-	color: ${colors.primary};
+	color: ${Color.PRIMARY};
 `
 
 export const MainPanel = styled.div`
 	margin-top: 5rem;
 	height: calc(100vh - 5rem);
 	overflow-y: overlay;
-	margin-left: ${({ isMobile }) => (isMobile ? 0 : '30rem')};
+	margin-left: ${({ isMobile }: Props) => (isMobile ? 0 : '30rem')};
 
-	${({ isMobile }) => {
+	${({ isMobile }: Props) => {
 		if (isMobile) {
 			return `&::-webkit-scrollbar {
 				background: transparent; /* Chrome/Safari/Webkit */
@@ -22,7 +26,7 @@ export const MainPanel = styled.div`
 `
 
 export const FlaggedCount = styled.h1`
-	background-color: ${colors.gray400};
+	background-color: ${Color.GRAY_400};
 	padding: 0.6rem 1.5rem;
 	font-size: 1.4rem;
 	font-weight: 600;
@@ -36,5 +40,5 @@ export const FlaggedChannels = styled.section`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin-top: ${({ isMobile }) => (isMobile ? '3.5rem' : '0')};
+	margin-top: ${({ isMobile }: Props) => (isMobile ? '3.5rem' : '0')};
 `

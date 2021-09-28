@@ -1,18 +1,17 @@
-import React from 'react'
 import { Container } from './FloatingActionMenu.styles'
 import Button from '../../../../components/Button'
 
 import { ReactComponent as ThumbsUpIcon } from '../../../../assets/thumbsUp.svg'
 import { ReactComponent as ThumbsDownIcon } from '../../../../assets/thumbsDown.svg'
-import colors from '../../../../theme/colors'
+import Color from '../../../../theme/colors'
 
-const FloatingActionMenu = ({ children }) => (
+const FloatingActionMenu = () => (
 	<Container>
-		<Button variant="action" hoverColor={colors.lightGreen}>
+		<Button variant="action" hoverColor={Color.LIGHT_GREEN}>
 			<ThumbsUpIcon />
 			Ignore
 		</Button>
-		<Button variant="action" hoverColor={colors.lightRed}>
+		<Button variant="action" hoverColor={Color.LIGHT_RED}>
 			<ThumbsDownIcon />
 			Terminate
 		</Button>

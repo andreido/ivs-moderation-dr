@@ -1,8 +1,12 @@
-import React from 'react'
 import { ReactComponent as NotificationIcon } from './notification.svg'
-import colors from '../theme/colors'
+import Color from '../theme/colors'
 
-const MenuIcon = ({ active, notif }) => (
+interface Props {
+	active: boolean
+	notif: boolean
+}
+
+const MenuIcon = ({ active, notif }: Props) => (
 	<>
 		{notif && (
 			<NotificationIcon
@@ -21,7 +25,7 @@ const MenuIcon = ({ active, notif }) => (
 		>
 			<path
 				d="M0 12H18V10H0V12ZM0 7H18V5H0V7ZM0 0V2H18V0H0Z"
-				fill={active ? colors.primary : colors.secondary}
+				fill={active ? Color.PRIMARY : Color.SECONDARY}
 			/>
 		</svg>
 	</>
