@@ -13,10 +13,10 @@ const Navigation = ({ isMenuOpen, setMenuOpen, hasChannels }) => {
 			<LeftNav>
 				{isMobile && (
 					<Button
-						disableHover={isMenuOpen}
+						active={isMenuOpen}
 						onClick={() => setMenuOpen((prev) => !prev)}
 					>
-						<MenuIcon active={isMenuOpen} notif={hasChannels} />
+						<MenuIcon active={isMenuOpen} notif={hasChannels && !isMenuOpen} />
 					</Button>
 				)}
 			</LeftNav>

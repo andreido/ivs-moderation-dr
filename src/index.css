@@ -28,6 +28,7 @@ a {
 	box-sizing: border-box;
 }
 
+/* Scrollbar Styling */
 *::-webkit-scrollbar {
 	width: 0.8em;
 	z-index: 1000;

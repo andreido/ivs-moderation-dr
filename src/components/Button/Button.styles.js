@@ -17,17 +17,26 @@ export const DefaultButton = styled.button`
 	align-items: center;
 	justify-content: center;
 
-	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-		box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-		border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	background-position: center;
+	transition: background 0.5s;
 
-	${({ disableHover }) => {
-		if (!disableHover) {
-			return `&:hover {
-				background-color: ${colors.primary};
-			}`
+	${({ active }) => {
+		if (!active) {
+			return `
+				&:hover {
+					background: ${colors.primary}
+						radial-gradient(circle, transparent 1%, ${colors.primary} 1%)
+						center/15000%;
+				}
+			`
 		}
 	}}
+
+	&:active {
+		background-color: ${colors.primaryHover};
+		background-size: 100%;
+		transition: background 0s;
+	}
 `
 
 export const ActionButton = styled.button`
