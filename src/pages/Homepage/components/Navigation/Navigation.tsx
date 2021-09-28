@@ -5,7 +5,13 @@ import MenuIcon from '../../../../assets/MenuIcon'
 import { Container, LeftNav, RightNav } from './Navigation.styles'
 import useBreakpoints from '../../../../contexts/breakpoints/useBreakpoints'
 
-const Navigation = ({ isMenuOpen, setMenuOpen, hasChannels }) => {
+interface Props {
+	isMenuOpen: boolean
+	hasChannels: boolean
+	setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Navigation = ({ isMenuOpen, setMenuOpen, hasChannels }: Props) => {
 	const { isMobile } = useBreakpoints()
 
 	return (

@@ -1,0 +1,23 @@
+enum Color {
+	PRIMARY = '#008CF6',
+	PRIMARY_HOVER = '#0070C5',
+	SECONDARY = '#ffffff',
+	ALERT = '#FD2222',
+	ALERT_HOVER = '#CA1B1B',
+	TERTIARY = '#F90000',
+	BLACK = '#000000',
+	GRAY_900 = '#17212B',
+	GRAY_800 = '#1B2733',
+	GRAY_700 = '#1C2935',
+	GRAY_600 = '#22303F',
+	GRAY_500 = '#2A323E',
+	GRAY_400 = '#2E3845',
+	GRAY_300 = '#414852',
+	GRAY_100 = '#BABABA',
+	GREEN = '#1BC718',
+	LIGHT_GREEN = '#02CA46',
+	LIGHT_RED = '#BC3E57',
+	DARK_RED = '#A13156'
+}
+
+export default Color

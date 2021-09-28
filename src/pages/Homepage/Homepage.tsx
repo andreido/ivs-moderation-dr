@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
 	ChannelsCount,
 	FlaggedCount,
@@ -13,6 +13,7 @@ import Navigation from './components/Navigation'
 
 import { multiChannel as channelsData } from '../../dummyChannelsData'
 
+import { Channel } from '../../contexts/channels/context'
 import useChannels from '../../contexts/channels/useChannels'
 import useBreakpoints from '../../contexts/breakpoints/useBreakpoints'
 import { getSidebarChannels, getChannel } from './utils'
@@ -29,10 +30,10 @@ const Homepage = () => {
 	)
 
 	useEffect(() => {
-		const channels = channelsData.data.listChannelss.items
+		const channels: Channel[] = channelsData.data.listChannelss.items
 		setChannels(channels)
 		if (!channels.length) {
-			setSelectedChannelId(null)
+			setSelectedChannelId('')
 		} else {
 			setSelectedChannelId(channels[0].id)
 		}
@@ -49,8 +50,7 @@ const Homepage = () => {
 			>
 				{channels.length ? (
 					<>
-						<ChannelsCount>{channels.length}</ChannelsCount>
-						&nbsp;
+						<ChannelsCount>{channels.length}&nbsp;</ChannelsCount>
 						{`Stream${channels.length === 1 ? '' : 's'} to review`}
 					</>
 				) : (

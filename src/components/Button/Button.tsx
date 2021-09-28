@@ -1,7 +1,16 @@
 import React from 'react'
 import { DefaultButton, ActionButton } from './Button.styles'
 
-const Button = ({ children, variant, ...buttonProps }) => {
+interface Props {
+	variant?: 'action' | 'default' | null
+	[key: string]: any
+}
+
+const Button = ({
+	children,
+	variant = 'default',
+	...buttonProps
+}: React.PropsWithChildren<Props>) => {
 	switch (variant) {
 		case 'action': {
 			return <ActionButton {...buttonProps}>{children}</ActionButton>
@@ -10,10 +19,6 @@ const Button = ({ children, variant, ...buttonProps }) => {
 			// default button variant
 			return <DefaultButton {...buttonProps}>{children}</DefaultButton>
 	}
-}
-
-Button.defaultProps = {
-	variant: 'default'
 }
 
 export default Button

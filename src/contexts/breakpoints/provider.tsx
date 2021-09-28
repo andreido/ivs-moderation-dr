@@ -1,18 +1,20 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react'
-import _ from 'lodash'
-import BreakpointsContext from './context'
-import breakpoints, { mobileBreakpoints } from '../../theme/breakpoints'
+import BreakpointsContext, { IBreakpointsContext } from './context'
+import Breakpoint, { mobileBreakpoints } from '../../theme/breakpoints'
 
-const BreakpointsProvider = ({ children }) => {
+const BreakpointsProvider = ({ children }: React.PropsWithChildren<{}>) => {
 	const [width, setWidth] = useState(window.innerWidth)
 
-	const getCurrentBreakpoint = useCallback((width) => {
-		let currentBreakpoint = 'xs'
-		_.forEach(breakpoints, (bp_width, bp_type) => {
-			if (width > bp_width) {
-				currentBreakpoint = bp_type
-			} else return false
-		})
+	const getCurrentBreakpoint = useCallback((width: number): Breakpoint => {
+		let currentBreakpoint = Breakpoint.XS
+		for (let bp in Breakpoint) {
+			const _bp = Number(bp)
+			if (!isNaN(_bp)) {
+				if (width > _bp) {
+					currentBreakpoint = _bp
+				} else break
+			}
+		}
 		return currentBreakpoint
 	}, [])
 
@@ -24,7 +26,7 @@ const BreakpointsProvider = ({ children }) => {
 		return () => window.removeEventListener('resize', handleWindowResize)
 	}, [])
 
-	const value = useMemo(() => {
+	const value: IBreakpointsContext = useMemo(() => {
 		const breakpoint = getCurrentBreakpoint(width)
 		return {
 			breakpoint,

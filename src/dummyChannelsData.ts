@@ -1,4 +1,15 @@
-export const noChannels = {
+import { Channel } from './contexts/channels/context'
+
+interface ChannelData {
+	data: {
+		listChannelss: {
+			items: Channel[]
+			nextToken?: string | null
+		}
+	}
+}
+
+export const noChannels: ChannelData = {
 	data: {
 		listChannelss: {
 			items: [],
@@ -7,7 +18,7 @@ export const noChannels = {
 	}
 }
 
-export const oneChannel = {
+export const oneChannel: ChannelData = {
 	data: {
 		listChannelss: {
 			items: [
@@ -27,7 +38,7 @@ export const oneChannel = {
 	}
 }
 
-export const multiChannel = {
+export const multiChannel: ChannelData = {
 	data: {
 		listChannelss: {
 			items: [

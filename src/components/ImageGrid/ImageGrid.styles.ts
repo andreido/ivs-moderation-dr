@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import breakpoints from '../../theme/breakpoints'
+import Breakpoint from '../../theme/breakpoints'
 
 export const Grid = styled.div`
 	display: grid;
@@ -8,15 +8,15 @@ export const Grid = styled.div`
 	padding: 2.9rem;
 	overflow-y: overlay;
 
-	@media (min-width: ${breakpoints.xs}px) {
+	@media (min-width: ${Breakpoint.XS}px) {
 		grid-template-columns: repeat(1, 1fr);
 	}
 
-	@media (min-width: ${breakpoints.sm}px) {
+	@media (min-width: ${Breakpoint.SM}px) {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	@media (min-width: ${breakpoints.lg}px) {
+	@media (min-width: ${Breakpoint.LG}px) {
 		grid-template-columns: repeat(3, 1fr);
 	}
 `
